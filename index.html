@@ -34,14 +34,21 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     <h3>Remote Configuration (Firebase Remote Config)</h3>
     <p>We use Firebase Remote Config to manage app settings remotely, such as minimum required app version. No personal data is collected through this service.</p>
 
+    <h3>Anonymous Authentication (Firebase Auth)</h3>
+    <p>TapTap uses Firebase Anonymous Authentication to assign a unique anonymous identifier to your device. This identifier is used solely to ensure each device has one leaderboard entry per game duration. No personal information is associated with this identifier unless you voluntarily submit a score.</p>
+
     <h3>Leaderboard (Firebase Firestore)</h3>
-    <p>If you choose to submit your score to the leaderboard, the following data is collected and stored on Firebase Firestore (Google LLC):</p>
+    <p>TapTap automatically submits your score to the leaderboard when you achieve a new personal best in Solo mode. The first time this happens, you will be asked to provide a display name. The following data is collected and stored on Firebase Firestore (Google LLC):</p>
     <ul>
         <li>Display name (entered voluntarily by you)</li>
+        <li>Optional comment (entered voluntarily by you)</li>
         <li>Game score and selected duration</li>
+        <li>Country code (derived from your IP address via a third-party geolocation service, ipapi.co)</li>
+        <li>Anonymous device identifier (Firebase Auth UID)</li>
         <li>Submission timestamp</li>
     </ul>
-    <p>Leaderboard submission is entirely optional. You can play without submitting any data.</p>
+    <p>Only your highest score per game duration is stored. Previous scores are overwritten when a new personal best is achieved.</p>
+    <p>If you do not achieve a personal best, no data is sent to our servers.</p>
 
     <h2>Data Sharing</h2>
     <p>We do not sell, trade, or share your personal data with third parties, except as described above through Firebase and AdMob services (Google LLC).</p>
